@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administração | Arte Black</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="admin-body">
+
+    <!-- LOGIN -->
+
+    <section id="login-section" class="login-section">
+
+        <div class="login-card">
+
+            <div class="admin-logo">
+                <span>AB</span>
+            </div>
+
+            <h1>ARTE <span>BLACK</span></h1>
+
+            <p>Painel administrativo</p>
+
+            <form id="login-form">
+
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <label for="password">Senha</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <button type="submit">
+                    Entrar no painel
+                </button>
+
+                <p id="login-message"></p>
+
+            </form>
+
+            <a href="index.html" class="back-link">
+                Voltar ao catálogo
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- PAINEL ADMINISTRATIVO -->
+
+    <section id="dashboard-section" class="dashboard-section" hidden>
+
+        <header class="admin-header">
+
+            <div class="admin-brand">
+                <span>AB</span>
+
+                <div>
+                    <h2>ARTE BLACK</h2>
+                    <small>ADMINISTRAÇÃO</small>
+                </div>
+            </div>
+
+            <button id="logout-button" class="logout-button">
+                Sair
+            </button>
+
+        </header>
+
+        <main class="admin-main">
+
+            <div class="admin-welcome">
+                <span>PAINEL DE CONTROLE</span>
+                <h1>Gerenciar catálogo</h1>
+                <p>Administre seus produtos, estoque e serviços.</p>
+            </div>
+
+            <!-- MENU -->
+
+            <nav class="admin-nav">
+
+                <button class="admin-tab active" data-tab="products-admin">
+                    Produtos
+                </button>
+
+                <button class="admin-tab" data-tab="services-admin">
+                    Serviços
+                </button>
+
+            </nav>
+
+            <!-- GERENCIAR PRODUTOS -->
+
+            <section id="products-admin" class="admin-content active">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Seus produtos</h2>
+                        <p>Cadastre e atualize os produtos da loja.</p>
+                    </div>
+
+                    <button id="add-product-button" class="add-button">
+                        + Novo produto
+                    </button>
+                </div>
+
+                <div id="product-form-container" class="admin-form-container" hidden>
+
+                    <h3 id="product-form-title">Adicionar produto</h3>
+
+                    <form id="product-form">
+
+                        <input type="hidden" id="product-id">
+
+                        <label for="product-name">Nome do produto</label>
+                        <input type="text" id="product-name" required>
+
+                        <label for="product-category">Categoria</label>
+                        <select id="product-category" required>
+                            <option value="">Selecione</option>
+                            <option value="bone">Bonés</option>
+                            <option value="camiseta">Camisetas</option>
+                            <option value="roupa">Roupas</option>
+                            <option value="acessorio">Acessórios</option>
+                        </select>
+
+                        <label for="product-description">Descrição</label>
+                        <textarea id="product-description" rows="3"></textarea>
+
+                        <label for="product-price">Preço</label>
+                        <input type="number" id="product-price" min="0" step="0.01" required>
+
+                        <label for="product-quantity">Quantidade em estoque</label>
+                        <input type="number" id="product-quantity" min="0" step="1" required>
+
+                        <label for="product-photo">Foto do produto</label>
+                        <input type="file" id="product-photo" accept="image/*">
+
+                        <div class="form-actions">
+                            <button type="submit" class="save-button">
+                                Salvar produto
+                            </button>
+
+                            <button type="button" id="cancel-product-button" class="cancel-button">
+                                Cancelar
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div id="admin-products-list" class="admin-list">
+                    <!-- Produtos cadastrados aparecerão aqui -->
+                </div>
+
+            </section>
+
+            <!-- GERENCIAR SERVIÇOS -->
+
+            <section id="services-admin" class="admin-content">
+
+                <div class="admin-section-heading">
+                    <div>
+                        <h2>Serviços da barbearia</h2>
+                        <p>Atualize os serviços e seus respectivos preços.</p>
+                    </div>
+
+                    <button id="add-service-button" class="add-button">
+                        + Novo serviço
+                    </button>
+                </div>
+
+                <div id="service-form-container" class="admin-form-container" hidden>
+
+                    <h3 id="service-form-title">Adicionar serviço</h3>
+
+                    <form id="service-form">
+
+                        <input type="hidden" id="service-id">
+
+                        <label for="service-name">Nome do serviço</label>
+                        <input type="text" id="service-name" required>
+
+                        <label for="service-description">Descrição</label>
+                        <textarea id="service-description" rows="3"></textarea>
+
+                        <label for="service-price">Preço</label>
+                        <input type="number" id="service-price" min="0" step="0.01" required>
+
+                        <div class="form-actions">
+                            <button type="submit" class="save-button">
+                                Salvar serviço
+                            </button>
+
+                            <button type="button" id="cancel-service-button" class="cancel-button">
+                                Cancelar
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div id="admin-services-list" class="admin-list">
+                    <!-- Serviços cadastrados aparecerão aqui -->
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+    <!-- O painel terá seu próprio JavaScript futuramente. --> 
+    
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="admin.js"></script>
+
+
+</body>
+
+</html>
